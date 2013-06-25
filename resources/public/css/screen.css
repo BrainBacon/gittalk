@@ -1,41 +1,10 @@
 body {
-    background-color: #fff;
-    color: #333;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 
-#container {
-    height: auto;
-    margin-bottom: 10px;
+.reveal .slides img {
+    border: 0 none;
+    box-shadow: none;
 }
 
-#footer {
-    width: 98%;
-    margin-left: 1%;
-    margin-right: 1%;
-    position:absolute;
-    bottom:0;
-    height: auto;
-    text-align: center;
-
-}
-
-.view-anim-leave {
-    -webkit-transition: .5s linear opacity;
-    opacity: 1;
-}
-
-.view-anim-leave.view-anim-leave-active {
-    opacity: 0;
-}
-
-.view-anim-enter, done-anim-enter {
-    -webkit-transition: .5s linear opacity;
-
-    opacity: 0;
-}
-
-.view-anim-enter.view-anim-enter-active, .done-anim-enter.done-anim-enter-active {
-    opacity: 1;
-}
 

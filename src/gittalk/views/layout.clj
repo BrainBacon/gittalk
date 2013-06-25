@@ -3,8 +3,6 @@
   (:require [gittalk.util :as util]
             [hiccup.core :as hiccup]))
 
-(def template-path "gittalk/views/templates/")
-
 (defn add-context [url] (str (:context *request*) url)) 
 
 (defn include-css [& filenames]
@@ -20,29 +18,28 @@
 
 (defn base [title]
   (hiccup/html
-    "<!DOCTYPE html>"
+    "<!doctype html>"
     [:html
      [:head
+       [:meta {:charset "utf-8"}]
+       [:meta {:name "description" :content "Git talk presentation app"}]
+       [:meta {:name "author" :content "Brian Jesse"}]
+       [:meta {:name "apple-mobile-web-app-capable" :content "yes"}]
+       [:meta {:name "apple-mobile-web-app-status-bar-style" :content "black-translucent"}]
+       [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}]
        [:title title]
-       (include-css "screen.css" "bootstrap.css")
+       (include-css "bootstrap.css" "reveal.min.css" "zenburn.css")
+       [:link#theme {:rel "stylesheet" :href "/css/theme/solarized.css"}]
+       (include-css "screen.css")
        [:script {:type "text/javascript"}
          (str "var context='" (:context *request*) "';")]]
-     [:body#ng-app {:ng-app "gittalkApp"}
-       [:div#wrap 
-         [:div.container {:ng-view "" :ng-animate "{enter: 'view-anim-enter', leave 'view-anim-leave'}"}]
-         [:div.push]]
-       [:div#footer
-         [:div.container
-           [:p.muted.footer-text
-             [:div.btn-group
-               [:a.btn.btn-default {:ng-href "#/1" :target "_self"} "1"]
-               [:a.btn.btn-default {:ng-href "#/2" :target "_self"} "2"]
-               [:a.btn.btn-default {:ng-href "#/3" :target "_self"} "3"]
-               [:a.btn.btn-default {:ng-href "#/4" :target "_self"} "4"]
-               [:a.btn.btn-default {:ng-href "#/5" :target "_self"} "5"]]]]]
+     [:body
+         [:div.reveal
+           [:div.slides
+             [:section {:data-markdown (add-context "/md/gittalk.md") :data-seperator "^\\n---\\n$" :data-vertical "^\\n--\\n$"}]]]
          [:script
-           {:src "//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"}]
-         (include-js "bootstrap.min.js" "app.js")]]))
+           {:src "//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"}]
+         (include-js "head.min.js" "reveal.js" "bootstrap.min.js" "app.js")]]))
 
 
 (defn render [content]

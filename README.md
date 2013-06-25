@@ -1,7 +1,7 @@
 # gittalk
 
-An app for my presentation on Git using Clojure, AngularJS, and Bootstrap 3.0
-Page content is in Markdown format and loaded asynchronously into the page via AngularJS.
+An app for my presentation on Git using Clojure, Bootstrap 3.0, and Reveal.js
+Page content is in Markdown format and loaded via Reveal.js
 
 ## Prerequisites
 
