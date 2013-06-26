@@ -15,7 +15,7 @@
 
 ---
 
-### What we'll cover
+#### What's covered in this presentation
 * Installation
 * Setup and configuration
 * Initializing a repository
@@ -27,6 +27,8 @@
 * Merging branches
 * Tagging
 * Remote repositories
+* Stashing
+* Rebasing
 
 ---
 
@@ -114,7 +116,7 @@
 
     $ git init
 
-* This creates a .git folder in the current directory.
+* This creates a .git folder in the current directory
 * Git only requires one folder at the root of the project
 * The .git folder contains the whole repository and history
 
@@ -126,8 +128,9 @@
     $ git add *.clj
     $ git add README
 
+* Add works recursively i.e. adding a directory will stage all of its contents
 * This has to be done before every commit if you wish to use the staging area
-* You only have to do this when you want the repository to track a new file if you use the `-a` option when committing.
+* You only have to do this when you want the repository to track a new file if you use the `-a` option when committing
 
 --
 
@@ -176,7 +179,7 @@
 
 * This file should be committed along with other files to your repository and shared among other repositories
 * The .gitignore file will accept wildcard syntax and basic regex
-* This will silence any status messages for untracked files that you do not want to add.
+* This will silence any status messages for untracked files that you do not want to add
 
 --
 
@@ -197,7 +200,7 @@
 * Branches are a collection of commits
 * They are really cheap to use and quick to set up
 * You should use branches often and for individual features/issues
-* Checking out a new branch
+* Creating a new branch
 
       $ git checkout -b brian
       M	resources/public/md/gittalk.md
@@ -220,15 +223,21 @@
      resources/public/md/gittalk.md |  214 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---
      1 file changed, 211 insertions(+), 3 deletions(-)
 
+--
 
-* Managing merge conflicts
-  - Git will create a new commit when merge conflicts occur
-  - Any files that now have merge conflicts will have resolution markers in them
-  - Git will also add local, remote, and base versions of the file for you to diff against
-  - When you are satisfied with the merge run
+### Managing merge conflicts
+  * Git will create a new commit when merge conflicts occur
+  * Any files that now have merge conflicts will have resolution markers in them
+  * Git will also add local, remote, and base versions of the file for you to diff against
+  * When you are satisfied with the merge run
 
         $ git add <filename>
         $ git commit
+
+  * The mergetool may come in handy
+
+        $ git config --global merge.tool vimdiff
+        $ git mergetool
 
 --
 
@@ -245,7 +254,7 @@
 * Tag a commit by referring to part of its SHA-1 hash id
 * Git tags are pointers to a commit
 * Can be treated as branches in many ways
-* Should not be used for parallel development but should be used for tracking release versions and architectural overhauls.
+* Should not be used for parallel development but should be used for tracking release versions and architectural overhauls
 
 ---
 
@@ -276,7 +285,7 @@
 * This will push the branch "master" to the remote server "origin" 
 * You must have write access to the remote repository
 * This will only work if the branch you are pushing to is not checked out in the remote working directory
-* When creating central remote repositories it makes more sense to either create or clone a repository with the `--bare` option so there is no working directory.
+* When creating central remote repositories it makes more sense to either create or clone a repository with the `--bare` option so there is no working directory
 
 --
 
@@ -288,7 +297,7 @@
 
     $ git fetch
 
-* this loads all repository data from a remote server but will not initiate a merge.
+* this loads all repository data from a remote server but will not initiate a merge
 
 --
 
@@ -298,13 +307,36 @@
     origin	git@github.com:bajesse/gittalk.git (fetch)
     origin	git@github.com:bajesse/gittalk.git (push)
 
-* add a new remote repository
+* Add a new remote repository
 
       $ git remote add brianjlx brianj@brianjlx:Projects/gittalk
 
-* remove a remote repository
+* Remove a remote repository
 
       $ git remote rm brianjlx
+
+* Change a remote repository url
+
+      $ git remote set-url origin git@github.com:bajesse/gittalk.git
+
+---
+
+### Advanced Concepts
+
+* Stash
+
+      $ git stash
+
+  - This will temporarily store any changes to files in your working directory (useful for quickly looking at another branch without committing or merging)
+
+        $ git stash pop
+
+  - This will restore your changes to the working directory after stashing
+
+* Rebasing
+  - Use rebasing to make parallel branches that merge look like a linear series of commits
+  - "Treat rebasing as a way to clean up and work with commits before you push them" 
+  - "Only rebase commits that have never been available publicly"
 
 ---
 
@@ -319,12 +351,10 @@
 * Git Immersion
   - [`http://gitimmersion.com/lab_01.html`](http://gitimmersion.com/lab_01.html)
 
+* Check out the source for this presentation
+  - [`https://github.com/bajesse/gittalk`](https://github.com/bajesse/gittalk)
+
 ---
 
-# THE END
+# The End
 
----
-
-### Advanced Concepts
-* Rebasing
-  > "If you treat rebasing as a way to clean up and work with commits before you push them, and if you only rebase commits that have never been available publicly, then you’ll be fine. If you rebase commits that have already been pushed publicly, and people may have based work on those commits, then you may be in for some frustrating trouble."
