@@ -1,6 +1,6 @@
 (defproject gittalk "0.1.0-SNAPSHOT"
   :description "Website for Git presentation"
-  :url "http://brian-jesse.com"
+  :url "http://brian-jesse.com/gittalk"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [lib-noir "0.6.2"]
                  [compojure "1.1.5" :exclusions [org.clojure/tools.macro ring/ring-core]]
