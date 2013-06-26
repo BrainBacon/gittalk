@@ -1,5 +1,5 @@
 ## Introduction to
-![Git Logo](/img/Git-Logo-1788C.png)
+![Git Logo](http://git-scm.com/images/logos/downloads/Git-Logo-1788C.png)
 #### June 26, 2013
 #### By Brian Jesse
 

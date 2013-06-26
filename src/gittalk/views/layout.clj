@@ -29,7 +29,7 @@
        [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}]
        [:title title]
        (include-css "bootstrap.css" "reveal.min.css" "zenburn.css")
-       [:link#theme {:rel "stylesheet" :href "/css/theme/solarized.css"}]
+       [:link#theme {:rel "stylesheet" :href (add-context "/css/theme/solarized.css")}]
        (include-css "screen.css")
        [:script {:type "text/javascript"}
          (str "var context='" (:context *request*) "';")]]
