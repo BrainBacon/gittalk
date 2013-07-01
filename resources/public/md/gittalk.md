@@ -62,7 +62,7 @@
 * Identity
 
       $ git config --global user.name "Brian Jesse"
-      $ git config --global user.email brianj@wolfram.com
+      $ git config --global user.email user@example.com
 
 * Editor
 
@@ -76,7 +76,7 @@
 
       $ git config --list
       user.name=Brian Jesse
-      user.email=brianj@wolfram.com
+      user.email=user@example.com
       diff.tool=vimdiff
       core.editor=vim
 
@@ -152,7 +152,7 @@
 
       $ git log -1
       commit 1a071baaf24488663ca7242937abbba2c21c714e
-      Author: Brian Jesse <brianj@wolfram.com>
+      Author: Brian Jesse <user@example.com>
       Date:   Tue Jun 25 14:16:41 2013 -0500
 
           Moved app to Reveal.js
@@ -246,7 +246,7 @@
     $ git tag reveal-move 1a07
     $ git log reveal-move -1
     commit 1a071baaf24488663ca7242937abbba2c21c714e
-    Author: Brian Jesse <brianj@wolfram.com>
+    Author: Brian Jesse <user@example.com>
     Date:   Tue Jun 25 14:16:41 2013 -0500
 
         Moved app to Reveal.js
@@ -262,7 +262,7 @@
 
 * Clone via SSH
 
-      $ git clone brianj@brianjlx:~/Projects/gittalk.git
+      $ git clone git@github.com:~/Projects/gittalk.git
 
 * Clone via GIT protocol
 
@@ -274,7 +274,7 @@
 
 * Clone via filesystem
 
-      $ git clone /home/brianj/Projects/gittalk
+      $ git clone /home/user/Documents/gittalk
 
 --
 
@@ -309,7 +309,7 @@
 
 * Add a new remote repository
 
-      $ git remote add brianjlx brianj@brianjlx:Projects/gittalk
+      $ git remote add origin git@github.com:bajesse/gittalk
 
 * Remove a remote repository
 
@@ -353,6 +353,9 @@
 
 * Check out the source for this presentation
   - [`https://github.com/bajesse/gittalk`](https://github.com/bajesse/gittalk)
+
+* Twitter @Brain_Bacon
+  - [`https://twitter.com/Brain_Bacon`](https://twitter.com/Brain_Bacon)
 
 ---
 
